@@ -1,0 +1,207 @@
+<!DOCTYPE HTML>
+<!--
+	Lens by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Lens by HTML5 UP</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<script src="AgoraRTCSDK-2.5.0.js"></script>
+		<script src="vendor/jquery.js"></script>
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<link rel="stylesheet" type="text/css" href="style.css">
+	</head>
+	<body class="is-preload-0 is-preload-1 is-preload-2" onload="drawvolumecontroller(20,35,8);">
+
+		<!-- Main -->
+			<div id="main">
+				<div id="volumcontroller">
+				</div>
+<!---				<div id="volumeindicator">
+						8
+		--		</div> -->
+				<!-- Header -->
+					<header id="header">
+							<div id="myProgress">
+									<div id="myBar"></div>
+								</div>
+
+						<h1>Gym Assist</h1>
+						<p>Teach,learn,assist anytime,anywhere</a></p>
+				<!--		<ul class="icons">
+							<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
+							<li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
+						</ul>
+					-->
+						<div id="div_device" class="panel panel-default">
+						<div class="select">
+						<label for="audioSource">Audio source: </label><select id="audioSource"></select>
+						</div>
+						<div class="select">
+						<label for="videoSource">Video source: </label><select id="videoSource"></select>
+						</div>
+						</div>
+						<div>
+							<select id="mySelect" size="1">
+								<option value="heatingup">Begin training</option>
+								<option value="fast">Extreme</option>
+								<option value="input">Normal</option>
+							  </select>		
+
+
+						</div>
+						
+				<!--		App ID: ---> <input id="appId" type="hidden" value="a582d3a32279439d8a2fcc1a967611d5" size="36"></input>
+			 <!--	Channel: --> <input id="channel" type="hidden" value="1000" size="4"></input>
+						Host: <input id="video" type="checkbox" checked></input>
+						<button id="join" class="btn btn-primary" onclick="join()">Join</button>
+						<button id="leave" class="btn btn-primary" onclick="leave()">Leave</button>
+						<button id="publish" class="btn btn-primary" onclick="publish()">Publish</button>
+						<button id="unpublish" class="btn btn-primary" onclick="unpublish()">Unpublish</button>
+					</header>
+
+				<!-- Thumbnail -->
+					<section id="thumbnails">
+						<article>
+							<div id="video" style="margin:0 auto;">
+								<div id="agora_local" style="float:right;width:210px;height:147px;display:inline-block;">
+						<!---		<a class="thumbnail" href="images/fulls/01.jpg" data-position="left center"><img src="images/thumbs/01.jpg" alt="" /></a>
+						-->	</div>
+							</div>
+						<!--	<a class="thumbnail" href="images/fulls/01.jpg" data-position="left center"><img src="images/thumbs/01.jpg" alt="" /></a> -->
+						<div style="position: absolute;bottom:5vh;">	
+							<h2 onclick="defaulting();">Details ▼</h2>
+							<p class="detailsUser"></p>
+						</div>
+						</article>
+						<article>
+							<a class="thumbnail" href="images/fulls/02.jpg"><img src="images/thumbs/02.jpg" alt="" /></a>
+							<h2>Vivamus convallis libero</h2>
+							<p>Sed velit lacus, laoreet at venenatis convallis in lorem tincidunt.</p>
+						</article>
+						<article>
+							<a class="thumbnail" href="images/fulls/03.jpg" data-position="top center"><img src="images/thumbs/03.jpg" alt="" /></a>
+							<h2>Nec accumsan enim felis</h2>
+							<p>Maecenas eleifend tellus ut turpis eleifend, vitae pretium faucibus.</p>
+						</article>
+						<article>
+							<a class="thumbnail" href="images/fulls/04.jpg"><img src="images/thumbs/04.jpg" alt="" /></a>
+							<h2>Donec maximus nisi eget</h2>
+							<p>Tristique in nulla vel congue. Sed sociis natoque parturient nascetur.</p>
+						</article>
+						<article>
+							<a class="thumbnail" href="images/fulls/05.jpg" data-position="top center"><img src="images/thumbs/05.jpg" alt="" /></a>
+							<h2>Nullam vitae nunc vulputate</h2>
+							<p>In pellentesque cursus velit id posuere. Donec vehicula nulla.</p>
+						</article>
+	<!--					<article>
+							<a class="thumbnail" href="images/fulls/06.jpg"><img src="images/thumbs/06.jpg" alt="" /></a>
+							<h2>Phasellus magna faucibus</h2>
+							<p>Nulla dignissim libero maximus tellus varius dictum ut posuere magna.</p>
+						</article>
+						<article>
+							<a class="thumbnail" href="images/fulls/07.jpg"><img src="images/thumbs/07.jpg" alt="" /></a>
+							<h2>Proin quis mauris</h2>
+							<p>Etiam ultricies, lorem quis efficitur porttitor, facilisis ante orci urna.</p>
+						</article>
+						<article>
+							<a class="thumbnail" href="images/fulls/08.jpg"><img src="images/thumbs/08.jpg" alt="" /></a>
+							<h2>Gravida quis varius enim</h2>
+							<p>Nunc egestas congue lorem. Nullam dictum placerat ex sapien tortor mattis.</p>
+						</article>
+						<article>
+							<a class="thumbnail" href="images/fulls/09.jpg"><img src="images/thumbs/09.jpg" alt="" /></a>
+							<h2>Morbi eget vitae adipiscing</h2>
+							<p>In quis vulputate dui. Maecenas metus elit, dictum praesent lacinia lacus.</p>
+						</article>
+						<article>
+							<a class="thumbnail" href="images/fulls/10.jpg"><img src="images/thumbs/10.jpg" alt="" /></a>
+							<h2>Habitant tristique senectus</h2>
+							<p>Vestibulum ante ipsum primis in faucibus orci luctus ac tincidunt dolor.</p>
+						</article>
+						<article>
+							<a class="thumbnail" href="images/fulls/11.jpg"><img src="images/thumbs/11.jpg" alt="" /></a>
+							<h2>Pharetra ex non faucibus</h2>
+							<p>Ut sed magna euismod leo laoreet congue. Fusce congue enim ultricies.</p>
+						</article>
+						<article>
+							<a class="thumbnail" href="images/fulls/12.jpg"><img src="images/thumbs/12.jpg" alt="" /></a>
+							<h2>Mattis lorem sodales</h2>
+							<p>Feugiat auctor leo massa, nec vestibulum nisl erat faucibus, rutrum nulla.</p>
+						</article>
+-->				</section>
+
+				<!-- Footer -->
+				<!--
+					<footer id="footer">
+						<ul class="copyright">
+							<li>&copy; Untitled.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a>.</li>
+						</ul>
+					</footer>
+`-->
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script src="assets/js/trouble.js"></script>
+
+		<script>
+			function drawvolumecontroller(length,height,nowselected){    
+				document.getElementById("volumcontroller").innerHTML = "";
+				for (i=0;i<length;i++){
+						magassag = 7 + Math.round((1.4)*(length - i)); 
+						margintop = height-magassag;
+						if (margintop <= 0) {margintop=0;}
+						if (i >= nowselected){        
+								document.getElementById("volumcontroller").innerHTML = 
+								document.getElementById("volumcontroller").innerHTML + 
+								'<div  onmouseup="volumecontrolchanged(' + i + 
+								')" style="background-color:#898989;height:' + magassag + 
+								'px;margin-top:'+margintop+'px;" class="volumecontrollerbar"></div>';
+						} else {
+								document.getElementById("volumcontroller").innerHTML = 
+								document.getElementById("volumcontroller").innerHTML + 
+								'<div  onmouseup="volumecontrolchanged(' + i + 
+								')" style="height:'+magassag+'px;margin-top:' + margintop + 
+								'px;"class="volumecontrollerbar"></div>';
+						}        
+				}    
+		}
+		function volumecontrolchanged(newvolume){
+				drawvolumecontroller(20,35,newvolume);
+		//		document.getElementById("volumeindicator").innerHTML = newvolume;
+				localStream.setAudioVolume(newvolume);
+		}			
+		
+		function move(data) {
+			var elem = document.getElementById("myBar");   
+			var width = 1;
+			var id = setInterval(frame, 10);
+			function frame() {
+				if (width > data) {
+					width--;
+					elem.style.width = width*5 + '%'; 
+				} else if (width < data) {
+					width++; 
+					elem.style.width = width*5 + '%'; 
+				}else {
+					clearInterval(id);
+				}
+			}
+	}
+	</script>	
+			
+
+			
+			
+	</body>
+</html>
